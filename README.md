@@ -2,6 +2,9 @@
 
 A vanilla JavaScript Single Page Application (SPA) for managing a library database. This project demonstrates CRUD operations, DOM manipulation, and state management without external frameworks.
 
+## 🔗 Live Demo
+**Try the application here:** [View Live Demo](https://actireon.github.io/library-manager/)
+
 ## 🚀 Overview
 
 This application allows users to manage a collection of Books, Authors, and Genres. It is designed to simulate a real-world admin dashboard with relational data checks (e.g., you cannot delete an author if they have linked books).
