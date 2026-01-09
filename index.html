@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Library Manager</h1>
+        <nav>
+          <button id="nav-authors" class="nav-btn active">Authors</button>
+          <button id="nav-books" class="nav-btn">Books</button>
+          <button id="nav-genres" class="nav-btn">Genres</button>
+        </nav>
+      </header>
+
+      <main>
+        <section id="section-authors" class="view-section active">
+          <div class="toolbar">
+            <h2>Authors</h2>
+            <div class="search-box">
+              <input
+                type="text"
+                id="author-search"
+                placeholder="Search by name or surname..."
+              />
+            </div>
+            <button id="btn-add-author" class="action-btn">Add Author</button>
+          </div>
+
+          <div id="author-form-container" class="form-container hidden">
+            <h3>Author Details</h3>
+            <form id="author-form">
+              <input type="hidden" id="author-id" />
+              <div class="form-group">
+                <label>Surname*</label>
+                <input type="text" id="author-surname" required />
+              </div>
+              <div class="form-group">
+                <label>First Name*</label>
+                <input type="text" id="author-name" required />
+              </div>
+              <div class="form-group">
+                <label>Patronymic</label>
+                <input type="text" id="author-patronymic" />
+              </div>
+              <div class="form-group">
+                <label>Date of Birth*</label>
+                <input type="date" id="author-dob" required />
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="save-btn">Save</button>
+                <button type="button" id="author-cancel-btn" class="cancel-btn">
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th data-sort="surname">Surname</th>
+                <th data-sort="name">First Name</th>
+                <th data-sort="dob">Date of Birth</th>
+                <th>Books</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="authors-table-body"></tbody>
+          </table>
+        </section>
+
+        <section id="section-books" class="view-section hidden">
+          <div class="toolbar">
+            <h2>Library</h2>
+            <div class="search-box">
+              <input
+                type="text"
+                id="book-search"
+                placeholder="Search by title..."
+              />
+            </div>
+            <button id="btn-add-book" class="action-btn">Add Book</button>
+          </div>
+
+          <div id="book-form-container" class="form-container hidden">
+            <h3>Book Details</h3>
+            <form id="book-form">
+              <input type="hidden" id="book-id" />
+              <div class="form-group">
+                <label>Title*</label>
+                <input type="text" id="book-title" required />
+              </div>
+              <div class="form-group">
+                <label>Author (optional)</label>
+                <select id="book-author-select">
+                  <option value="" disabled selected hidden>
+                    Choose an author
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Genre*</label>
+                <select id="book-genre-select" required>
+                  <option value="" disabled selected hidden>
+                    Choose a genre
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Pages*</label>
+                <input type="number" id="book-pages" required min="1" />
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="save-btn">Save</button>
+                <button type="button" id="book-cancel-btn" class="cancel-btn">
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th data-sort="title">Title</th>
+                <th data-sort="author">Author</th>
+                <th data-sort="genre">Genre</th>
+                <th data-sort="pages">Pages</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="books-table-body"></tbody>
+          </table>
+        </section>
+
+        <section id="section-genres" class="view-section hidden">
+          <div class="toolbar">
+            <h2>Genres</h2>
+            <button id="btn-add-genre" class="action-btn">Add Genre</button>
+          </div>
+
+          <div id="genre-form-container" class="form-container hidden">
+            <h3>New Genre</h3>
+            <form id="genre-form">
+              <div class="form-group">
+                <label>Genre Name*</label>
+                <input type="text" id="genre-name" required />
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="save-btn">Save</button>
+                <button type="button" id="genre-cancel-btn" class="cancel-btn">
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <ul id="genres-list" class="styled-list"></ul>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
